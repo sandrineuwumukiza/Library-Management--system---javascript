@@ -20,13 +20,13 @@ var library = [
     {
         title: 'Atomic Habits',
         author: 'James Clair',
-        availability: false,
+        availability: true,
         holder: 'Aline'
     },
     {
         title: 'Think and Grow Rich',
         author: 'Napoleon Hill',
-        availability: true,
+        availability: false,
         holder: ''
     },
 ];
@@ -93,8 +93,24 @@ const borrow = (bookName, holder) => {
     }
 }
 
-const returnBook = () => {
-
-}
 
 borrow('Atomic Habits', 'John Smith');
+let returnedBook = {}
+const returnBook = (bookReturned) => {
+   let books= library.find(book =>book.title === bookReturned && book.availability === true);
+
+    if(!books)
+    {
+        console.log('book not available');
+    }
+    if(books){
+
+        console.log(`the book named ${bookReturned} was returned `);
+    }
+    
+
+}
+    returnBook('Think and Grow Rich')
+    
+    // console.log(returnBook());
+  
